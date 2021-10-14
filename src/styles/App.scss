@@ -1,0 +1,31 @@
+.timer__wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 20px;
+}
+
+h1 {
+  text-transform: uppercase;
+  font-weight: 400;
+  font-size: 50px;
+  color: rgb(27, 27, 27);
+}
+
+.timer__time-left {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  gap: 32px;
+  color: rgb(27, 27, 27);
+
+  span {
+    font-size: 50px;
+    font-weight: 600;
+  }
+
+  p {
+    font-size: 36px;
+    font-weight: 300;
+  }
+}
