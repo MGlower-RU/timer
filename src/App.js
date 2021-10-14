@@ -12,8 +12,34 @@ function App() {
 
   const formatNumber = num => num < 10 ? `0${num}` : num
 
-  function declensionWords() {
-    return 'Days'
+  function declensionWords(time, value) {
+    switch (time) {
+      case 'day':
+        if(value < 5) {
+          return 'day'
+        } else {
+          return 'days'
+        }
+      case 'hour':
+        if(value < 5) {
+          return 'hour'
+        } else {
+          return 'hours'
+        }
+      case 'minute':
+        if(value < 5) {
+          return 'minute'
+        } else {
+          return 'minutes'
+        }
+      case 'second':
+        if(value < 5) {
+          return 'second'
+        } else {
+          return 'seconds'
+        }
+      default: break;
+    }
   }
 
   const placeholderDate = `${formatNumber(new Date().getDate())}-${formatNumber(new Date().getMonth() + 1)}`
@@ -66,7 +92,7 @@ function App() {
             {time.days}
           </span>
           <p>
-            {declensionWords()}
+            {declensionWords('day', time.days)}
           </p>
         </div>
         <div className="timer__time-left__days">
@@ -74,7 +100,7 @@ function App() {
             {time.hours}
           </span>
           <p>
-            Hours
+            {declensionWords('hour', time.hours)}
           </p>
         </div>
         <div className="timer__time-left__days">
@@ -82,7 +108,7 @@ function App() {
             {time.minutes}
           </span>
           <p>
-            Minutes
+            {declensionWords('minute', time.minutes)}
           </p>
         </div>
         <div className="timer__time-left__days">
@@ -90,7 +116,7 @@ function App() {
             {time.seconds}
           </span>
           <p>
-            Second
+            {declensionWords('second', time.seconds)}
           </p>
         </div>
       </div>
