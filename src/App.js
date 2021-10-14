@@ -55,7 +55,7 @@ function App() {
           type="text"
           placeholder='28-01'
           value={birthdayDate}
-          onChange={e => setBirthdayDate(e.target.value.replace(/^-|[^\d-]|-{2}$|\d{3}/g, ''))}
+          onChange={e => setBirthdayDate(e.target.value.replace(/^-|[^\d-]|-{2}$|\d{3}/, ''))}
         />
       </div>
       <div className="timer__time-left">
