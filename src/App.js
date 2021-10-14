@@ -16,6 +16,8 @@ function App() {
     return 'Days'
   }
 
+  const placeholderDate = `${formatNumber(new Date().getDate())}-${formatNumber(new Date().getMonth() + 1)}`
+
   useEffect(() => {
     function changeTime() {
       const time = new Date()
@@ -53,7 +55,7 @@ function App() {
         <p>Input your birthday in day-month format:</p>
         <input
           type="text"
-          placeholder='28-01'
+          placeholder={placeholderDate}
           value={birthdayDate}
           onChange={e => setBirthdayDate(e.target.value.replace(/^-|[^\d-]|-{2}$|\d{3}/, ''))}
         />
