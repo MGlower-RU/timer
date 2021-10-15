@@ -1,7 +1,9 @@
 import { useEffect, useState } from 'react';
+
+import Cake from './cake.svg';
 import './styles/App.scss';
 
-function App() {
+export default function App() {
   const [birthdayDate, setBirthdayDate] = useState('')
   const [time, setTime] = useState({
     days: '00',
@@ -11,36 +13,7 @@ function App() {
   })
 
   const formatNumber = num => num < 10 ? `0${num}` : num
-
-  function declensionWords(time, value) {
-    switch (time) {
-      case 'day':
-        if(value < 5) {
-          return 'day'
-        } else {
-          return 'days'
-        }
-      case 'hour':
-        if(value < 5) {
-          return 'hour'
-        } else {
-          return 'hours'
-        }
-      case 'minute':
-        if(value < 5) {
-          return 'minute'
-        } else {
-          return 'minutes'
-        }
-      case 'second':
-        if(value < 5) {
-          return 'second'
-        } else {
-          return 'seconds'
-        }
-      default: break;
-    }
-  }
+  const declensionWords = (time, value) => Number(value) === 1 ? time : `${time}s`
 
   const placeholderDate = `${formatNumber(new Date().getDate())}-${formatNumber(new Date().getMonth() + 1)}`
 
@@ -76,6 +49,9 @@ function App() {
   
   return (
     <div className="timer__wrapper">
+      <div className="cake__img">
+        <img src={Cake} alt="" />
+      </div>
       <h1>Countdown to your birthday:</h1>
       <div className="timer__input">
         <p>Input your birthday in day-month format:</p>
@@ -120,10 +96,6 @@ function App() {
           </p>
         </div>
       </div>
-      <div className="timer__end">
-
-      </div>
     </div>
   );
 }
-export default App;
